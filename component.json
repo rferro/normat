@@ -1,0 +1,20 @@
+{
+  "name": "normat",
+  "description": "generic javascript number/string formatting (bytes, milliseconds e etc)",
+  "keywords": [
+    "string",
+    "parser",
+    "format",
+    "number",
+    "serialize",
+    "bytes",
+    "milliseconds",
+    "seconds",
+    "minutes",
+    "kb",
+    "ms"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": ["lib/index.js"]
+}
