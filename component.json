@@ -16,5 +16,22 @@
   ],
   "version": "1.0.1",
   "license": "MIT",
-  "scripts": ["lib/index.js"]
+  "scripts": [
+    "lib/index.js"
+  ],
+  "authors": [
+    "Ricardo Ferro <ricardo.ferro@gmail.com>"
+  ],
+  "main": "lib/index.js",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "https://github.com/rferro/normat",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
