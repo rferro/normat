@@ -62,7 +62,7 @@ var my_parser = normat([
   ['m',  1000],
   ['mi', 1000],
   ['b',  1000],
-  ['t'],
+  ['t']
 ]);
 
 my_parser(1);           // 1u

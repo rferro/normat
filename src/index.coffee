@@ -5,10 +5,9 @@ normat = (opts) -> (value) ->
   for opt, i in opts
     label = opt[0]
     base  = opt[1]
-    show  = -> "#{parseInt(value)}#{label}"
 
     if not base or (i + 1) is opts.length or value < base
-      return show()
+      return "#{parseInt(value)}#{label}"
 
     value = value / base
 
