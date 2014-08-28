@@ -28,6 +28,7 @@
   ],
   "homepage": "https://github.com/rferro/normat",
   "ignore": [
+    "src",
     "**/.*",
     "node_modules",
     "bower_components",
