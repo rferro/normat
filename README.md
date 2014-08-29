@@ -100,6 +100,28 @@ ms = normat [
 ]
 ```
 
+## Reverse Mode
+
+```js
+var normat = require("normat");
+
+var my_parser = normat([
+  ['u',  10],
+  ['d',  10],
+  ['c',  10],
+  ['m',  1000],
+  ['mi', 1000],
+  ['b',  1000],
+  ['t']
+]);
+
+my_parser('1u');      // 1
+my_parser('1d');      // 10
+my_parser('1c');      // 100
+my_parser('1m');      // 1000
+my_parser('1mi');     // 1000000
+```
+
 ## Tests
 
 ```shell
