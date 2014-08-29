@@ -4,10 +4,15 @@ module.exports = (grunt) ->
 
   grunt.initConfig(
     pkg: grunt.file.readJSON('package.json')
-    coffee:
+    bumpup:
       options:
-        bare: false
-      process:
+        updateProps:
+          pkg: 'package.json'
+      files: ['package.json', 'component.json']
+    coffee:
+      make:
+        options:
+          bare: false
         files: [
           {
             expand: true
@@ -18,15 +23,14 @@ module.exports = (grunt) ->
           }
         ]
     uglify:
-      options:
-        report:           false
-        preserveComments: false
-        banner:           '// <%= pkg.name %> <%= pkg.version %>\n// <%= pkg.repository.url %>\n// <%= grunt.template.today("yyyy-mm-dd HH:MM:ss Z") %>\n\n'
-      process:
+      make:
         options:
-          mangle:   true
-          compress: false
-          beautify: false
+          report:           false
+          preserveComments: false
+          banner:           '// <%= pkg.name %> <%= pkg.version %>\n// <%= pkg.repository.url %>\n// <%= grunt.template.today("yyyy-mm-dd HH:MM:ss Z") %>\n\n'
+          mangle:           true
+          compress:         false
+          beautify:         false
         files: [
           {
             expand: true
@@ -37,28 +41,19 @@ module.exports = (grunt) ->
           }
         ]
     watch:
-      process:
-        files: ['src/**/*.coffee']
-        tasks: ['coffee:process']
+      files: ['src/**/*.coffee']
+      tasks: ['coffee:process']
     mochaTest:
-      process:
-        options:
-          reporter: 'spec'
-          require: 'coffee-script/register'
-        src: ['test/**/*.coffee']
+      options:
+        reporter: 'spec'
+        require: 'coffee-script/register'
+      src: ['test/**/*.coffee']
   )
 
-  grunt.registerTask(
-    'make'
-    [
-      'coffee:process'
-      'uglify:process'
-    ]
-  )
+  grunt.registerTask 'release', (type = 'patch') ->
+    grunt.task.run 'bumpup:' + type
+    grunt.task.run 'coffee'
+    grunt.task.run 'uglify'
 
-  grunt.registerTask(
-    'test'
-    [
-      'mochaTest:process'
-    ]
-  )
+  grunt.registerTask 'test', ->
+    grunt.task.run 'mochaTest'
