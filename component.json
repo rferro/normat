@@ -1,6 +1,6 @@
 {
   "name": "normat",
-  "description": "generic javascript number/string formatting (bytes, milliseconds e etc)",
+  "description": "generic javascript number/string formatting (bytes, milliseconds...)",
   "keywords": [
     "string",
     "parser",
