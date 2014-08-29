@@ -1,6 +1,6 @@
 # normat
 
-generic javascript number/string formatting (bytes, milliseconds e etc)
+generic javascript number/string formatting (bytes, milliseconds...)
 
 ## Install
 
