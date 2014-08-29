@@ -6,14 +6,17 @@
     "name": "Ricardo Ferro",
     "email": "ricardo.ferro@gmail.com"
   },
+  "homepage": "https://github.com/rferro/normat",
+  "bugs": "https://github.com/rferro/normat/issues",
   "repository": {
-    "url": "https://github.com/rferro/normat/issues"
+    "type": "git",
+    "url": "https://github.com/rferro/normat"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/grunt --compilers coffee:coffee-script/register -R spec"
+    "test": "grunt test"
   },
   "keywords": [
     "string",
