@@ -1,1 +1,169 @@
-My Page
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Normat by rferro</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Normat</h1>
+        <p>generic javascript number/string formatting (bytes, milliseconds...)</p>
+        <p class="view"><a href="https://github.com/rferro/normat">View the Project on GitHub <small>rferro/normat</small></a></p>
+        <ul>
+          <li><a href="https://github.com/rferro/normat/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/rferro/normat/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/rferro/normat">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<pre lang="shell"><code>npm install normat
+</code></pre>
+
+<h2>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">normat</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"normat"</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">ms</span> <span class="o">=</span> <span class="nx">normat</span><span class="p">.</span><span class="nx">ms</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span>  <span class="o">=</span> <span class="nx">normat</span><span class="p">.</span><span class="nx">b</span><span class="p">;</span>
+</pre></div>
+
+<div class="highlight highlight-js"><pre><span class="c1">// milliseconds parser</span>
+
+<span class="nx">ms</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>                        <span class="c1">// 123ms</span>
+<span class="nx">ms</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>                       <span class="c1">// 1s</span>
+<span class="nx">ms</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>                      <span class="c1">// 10s</span>
+<span class="nx">ms</span><span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">12</span><span class="p">);</span>        <span class="c1">// 12h</span>
+<span class="nx">ms</span><span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">1500</span><span class="p">);</span> <span class="c1">// 4y</span>
+</pre></div>
+
+<div class="highlight highlight-js"><pre><span class="c1">// bytes parser</span>
+
+<span class="nx">b</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>                         <span class="c1">// 123b</span>
+<span class="nx">b</span><span class="p">(</span><span class="mi">1024</span><span class="p">);</span>                        <span class="c1">// 1kb</span>
+<span class="nx">b</span><span class="p">(</span><span class="mi">10240</span><span class="p">);</span>                       <span class="c1">// 10kb</span>
+<span class="nx">b</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>                      <span class="c1">// 97kb</span>
+<span class="nx">b</span><span class="p">(</span><span class="mi">123123124</span><span class="p">);</span>                   <span class="c1">// 117mb</span>
+<span class="nx">b</span><span class="p">(</span><span class="mi">1231423525142134</span><span class="p">);</span>            <span class="c1">// 1119tb</span>
+</pre></div>
+
+<div class="highlight highlight-js"><pre><span class="c1">// seconds parser</span>
+
+<span class="nx">normat</span><span class="p">.</span><span class="nx">s</span><span class="p">()</span>
+</pre></div>
+
+<div class="highlight highlight-js"><pre><span class="c1">// minutes parser</span>
+
+<span class="nx">normat</span><span class="p">.</span><span class="nx">m</span><span class="p">()</span>
+</pre></div>
+
+<div class="highlight highlight-js"><pre><span class="c1">// kbytes parser</span>
+
+<span class="nx">normat</span><span class="p">.</span><span class="nx">kb</span><span class="p">()</span>
+</pre></div>
+
+<h2>
+<a name="create-new-parsers" class="anchor" href="#create-new-parsers"><span class="octicon octicon-link"></span></a>Create new parsers</h2>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">normat</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"normat"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">my_parser</span> <span class="o">=</span> <span class="nx">normat</span><span class="p">([</span>
+  <span class="p">[</span><span class="s1">'u'</span><span class="p">,</span>  <span class="mi">10</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'d'</span><span class="p">,</span>  <span class="mi">10</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'c'</span><span class="p">,</span>  <span class="mi">10</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'m'</span><span class="p">,</span>  <span class="mi">1000</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'mi'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'b'</span><span class="p">,</span>  <span class="mi">1000</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'t'</span><span class="p">]</span>
+<span class="p">]);</span>
+
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>           <span class="c1">// 1u</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>          <span class="c1">// 1d</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>         <span class="c1">// 1c</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>        <span class="c1">// 1m</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span>     <span class="c1">// 1mi</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">2000000</span><span class="p">);</span>     <span class="c1">// 2mi</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">10000000</span><span class="p">);</span>    <span class="c1">// 10mi</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">100000000</span><span class="p">);</span>   <span class="c1">// 100mi</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">9900000000</span><span class="p">);</span>  <span class="c1">// 9b</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="mi">19000000000</span><span class="p">);</span> <span class="c1">// 19b</span>
+</pre></div>
+
+<div class="highlight highlight-js"><pre><span class="c1">// bytes</span>
+
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">normat</span> <span class="p">[</span>
+  <span class="p">[</span><span class="s1">'b'</span><span class="p">,</span>  <span class="mi">1024</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'kb'</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'mb'</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'gb'</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'tb'</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+
+<div class="highlight highlight-js"><pre><span class="c1">// milliseconds</span>
+
+<span class="nx">ms</span> <span class="o">=</span> <span class="nx">normat</span> <span class="p">[</span>
+  <span class="p">[</span><span class="s1">'ms'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'s'</span><span class="p">,</span>  <span class="mi">60</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'m'</span><span class="p">,</span>  <span class="mi">60</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'h'</span><span class="p">,</span>  <span class="mi">24</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'d'</span><span class="p">,</span>  <span class="mi">365</span><span class="p">]</span>
+  <span class="p">[</span><span class="s1">'y'</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+
+<h2>
+<a name="reverse-mode" class="anchor" href="#reverse-mode"><span class="octicon octicon-link"></span></a>Reverse Mode</h2>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">normat</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"normat"</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">my_parser</span> <span class="o">=</span> <span class="nx">normat</span><span class="p">([</span>
+  <span class="p">[</span><span class="s1">'u'</span><span class="p">,</span>  <span class="mi">10</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'d'</span><span class="p">,</span>  <span class="mi">10</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'c'</span><span class="p">,</span>  <span class="mi">10</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'m'</span><span class="p">,</span>  <span class="mi">1000</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'mi'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'b'</span><span class="p">,</span>  <span class="mi">1000</span><span class="p">],</span>
+  <span class="p">[</span><span class="s1">'t'</span><span class="p">]</span>
+<span class="p">]);</span>
+
+<span class="nx">my_parser</span><span class="p">(</span><span class="s1">'1u'</span><span class="p">);</span>      <span class="c1">// 1</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="s1">'1d'</span><span class="p">);</span>      <span class="c1">// 10</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="s1">'1c'</span><span class="p">);</span>      <span class="c1">// 100</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="s1">'1m'</span><span class="p">);</span>      <span class="c1">// 1000</span>
+<span class="nx">my_parser</span><span class="p">(</span><span class="s1">'1mi'</span><span class="p">);</span>     <span class="c1">// 1000000</span>
+</pre></div>
+
+<h2>
+<a name="tests" class="anchor" href="#tests"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<pre lang="shell"><code>grunt test
+</code></pre>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/rferro">rferro</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
