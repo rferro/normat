@@ -1,4 +1,10 @@
 
+1.1.2 / 2014-08-30
+==================
+
+  * 75d5df6 - Code optimization
+  * 1072f53 - Update package description
+
 1.1.0 / 2014-08-29
 ==================
 
