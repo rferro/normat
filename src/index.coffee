@@ -75,4 +75,13 @@ normat.kb = normat [
   ['tb']
 ]
 
-module.exports = normat
+prev = @normat
+
+normat.noConflict = =>
+  @normat = prev
+  normat
+
+if typeof module isnt 'undefined'
+  module.exports = normat
+else
+  @normat = normat
