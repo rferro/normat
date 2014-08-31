@@ -8,6 +8,12 @@ generic javascript number/string formatting (bytes, milliseconds...)
 npm install normat
 ```
 
+or
+
+```shell
+bower install normat
+```
+
 ## Examples
 
 ```js
