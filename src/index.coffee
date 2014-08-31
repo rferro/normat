@@ -4,10 +4,7 @@ normat = (opts) ->
     if typeof value is 'number'
       value = parseInt value
 
-      for opt, i in opts
-        label = opt[0]
-        base  = parseInt(opt[1])
-
+      for [label, base], i in opts
         if not base or (i + 1) is opts.length or value < base
           return "#{parseInt(value)}#{label}"
 
@@ -22,10 +19,7 @@ normat = (opts) ->
       vlabel  = value[2].toLowerCase()
       mtps    = []
 
-      for opt, i in opts
-        label = opt[0]
-        base  = parseInt(opt[1])
-
+      for [label, base], i in opts
         if label is vlabel
           if i is 0
             return vnumber
