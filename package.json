@@ -1,6 +1,6 @@
 {
   "name": "normat",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "generic javascript number/string formatting (bytes, milliseconds, ...)",
   "author": {
     "name": "Ricardo Ferro",
