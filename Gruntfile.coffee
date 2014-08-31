@@ -42,7 +42,7 @@ module.exports = (grunt) ->
         ]
     watch:
       files: ['src/**/*.coffee']
-      tasks: ['coffee:make']
+      tasks: ['coffee', 'uglify']
     mochaTest:
       options:
         reporter: 'spec'
