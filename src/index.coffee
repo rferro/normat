@@ -1,6 +1,5 @@
 
 normat = (opts) ->
-
   fn = (value) ->
     if typeof value is 'number'
       value = parseInt value
