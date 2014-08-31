@@ -1,3 +1,4 @@
+"use strict"
 
 normat = (opts) ->
   fn = (value) ->
