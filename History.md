@@ -1,4 +1,15 @@
 
+1.2.0 / 2014-08-31
+==================
+
+  * 3cf7f0e - Fix browser support
+  * ff056f9 - Gruntfile improvements
+  * 65f6fae - Added strict mode
+  * 707147d - Update coffee-script version
+  * ab54b35 - New test
+  * 85bbdab - Code optimization
+  * 5425390 - New .gitignore
+
 1.1.2 / 2014-08-30
 ==================
 
