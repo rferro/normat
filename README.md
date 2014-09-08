@@ -131,7 +131,7 @@ my_parser('1mi');     // 1000000
 ## Tests
 
 ```shell
-grunt test
+gulp test
 ```
 
 ## License
