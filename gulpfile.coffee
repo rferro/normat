@@ -1,5 +1,5 @@
 
-pkg    = require './package'
+fs          = require 'fs'
 
 gulp        = require 'gulp'
 runSequence = require 'run-sequence'
@@ -9,6 +9,7 @@ header      = require 'gulp-header'
 watch       = require 'gulp-watch'
 mocha       = require 'gulp-mocha'
 bump        = require 'gulp-bump'
+rename      = require 'gulp-rename'
 
 coffee     = require 'gulp-coffee'
 coffeelint = require 'gulp-coffeelint'
@@ -39,16 +40,19 @@ gulp.task 'coffee', ->
 gulp.task 'uglify', ->
   gulp.src(src.js)
     .pipe(uglify(preserveComments: false, mangle: true, compress: false))
+    .pipe(rename(extname: '.min.js'))
     .pipe(gulp.dest(dst.js))
 
 gulp.task 'header', ->
+  pkg = JSON.parse(fs.readFileSync('./package.json'))
+
   gulp.src(src.js)
     .pipe(header("// #{pkg.name} #{pkg.version}\n// #{pkg.repository.url}\n// #{(new Date()).toUTCString()}\n\n"))
     .pipe(gulp.dest(dst.js))
 
 gulp.task 'watch', ->
-  watch src.coffee, verbose: true, name: 'coffee', ->
-    runSequence 'lint', 'coffee'
+  watch src.coffee, name: 'coffee', (events, done) ->
+    runSequence 'lint', 'coffee', done
 
 gulp.task 'bump', ->
   type = 'patch'
@@ -66,8 +70,8 @@ gulp.task 'test', ->
   gulp.src('test/*.coffee', read: false)
     .pipe(mocha(reporter: 'spec'))
 
-gulp.task 'release', (cb) ->
-  runSequence 'lint', 'coffee', 'uglify', 'header', 'test', cb
+gulp.task 'release', (done) ->
+  runSequence 'lint', 'clean', 'coffee', 'uglify', 'bump', 'header', 'test', done
 
-gulp.task 'default', (cb) ->
-  runSequence 'lint', 'coffee', 'uglify', 'header', 'test', cb
+gulp.task 'default', (done) ->
+  runSequence 'lint', 'clean', 'coffee', 'uglify', 'header', 'test', done
