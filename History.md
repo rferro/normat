@@ -1,4 +1,11 @@
 
+1.2.2 / 2014-09-08
+==================
+
+  * 08ffd50 - Fix gulp release task
+  * aad6742 - Switch Grunt by Gulp
+  * 9929714 - Update README.md
+
 1.2.1 / 2014-08-31
 ==================
 
