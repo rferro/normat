@@ -85,25 +85,25 @@ my_parser(19000000000); // 19b
 ```js
 // bytes
 
-b = normat [
+b = normat ([
   ['b',  1024]
   ['kb', 1024]
   ['mb', 1024]
   ['gb', 1024]
   ['tb']
-]
+]);
 ```
 ```js
 // milliseconds
 
-ms = normat [
+ms = normat([
   ['ms', 1000]
   ['s',  60]
   ['m',  60]
   ['h',  24]
   ['d',  365]
   ['y']
-]
+]);
 ```
 
 ## Reverse Mode
