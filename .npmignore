@@ -1,6 +1,9 @@
 node_modules
 src
 test
+.editorconfig
+.gitignore
+.npmignore
 gulpfile.coffee
 History.md
 component.json
