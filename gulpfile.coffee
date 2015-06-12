@@ -4,7 +4,7 @@ fs          = require 'fs'
 gulp        = require 'gulp'
 runSequence = require 'run-sequence'
 util        = require 'gulp-util'
-clean       = require 'gulp-clean'
+del         = require 'del'
 header      = require 'gulp-header'
 watch       = require 'gulp-watch'
 mocha       = require 'gulp-mocha'
@@ -23,9 +23,8 @@ src =
 dst =
   js: 'lib'
 
-gulp.task 'clean', ->
-  gulp.src(src.js, read: false)
-    .pipe(clean())
+gulp.task 'clean', (cb) ->
+  del src.js, cb
 
 gulp.task 'lint', ->
   gulp.src(src.coffee)
