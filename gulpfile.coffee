@@ -50,8 +50,8 @@ gulp.task 'header', ->
     .pipe(gulp.dest(dst.js))
 
 gulp.task 'watch', ->
-  watch src.coffee, name: 'coffee', (events, done) ->
-    runSequence 'lint', 'coffee', done
+  watch src.coffee, ->
+    runSequence 'lint', 'coffee'
 
 gulp.task 'bump', ->
   type = 'patch'
