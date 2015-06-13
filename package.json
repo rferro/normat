@@ -51,5 +51,13 @@
     "gulp-watch": "^4.2.4",
     "mocha": "^2.2.5",
     "run-sequence": "^1.1.0"
+  },
+  "coffeelintConfig": {
+    "max_line_length": {
+      "level": "ignore"
+    },
+    "no_unnecessary_fat_arrows": {
+      "level": "ignore"
+    }
   }
 }
