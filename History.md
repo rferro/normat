@@ -2,12 +2,12 @@
 1.2.3 / 2015-06-12
 ==================
 
- * 3835c8f - Remove noConflict
- * 86e1711 - Fix gulp watch
- * ee01d4b - Switch gulp-clean by del
- * 80eeccb - Dev dependencies update and switch gulp-clean by del
- * 6ba3ad5 - Update README.md
- * f39fc42 - Update README.md
+  * 3835c8f - Remove noConflict
+  * 86e1711 - Fix gulp watch
+  * ee01d4b - Switch gulp-clean by del
+  * 80eeccb - Dev dependencies update and switch gulp-clean by del
+  * 6ba3ad5 - Update README.md
+  * f39fc42 - Update README.md
 
 1.2.2 / 2014-09-08
 ==================
