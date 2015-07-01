@@ -2,6 +2,8 @@
 
 generic javascript number/string formatting (bytes, milliseconds...)
 
+[![NPM](https://nodei.co/npm/normat.png)](https://nodei.co/npm/normat/)
+
 ## Install
 
 ```shell
