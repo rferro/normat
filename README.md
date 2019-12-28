@@ -26,21 +26,21 @@ var b  = normat.b;
 ```js
 // milliseconds parser
 
-ms(123);                        // 123ms
-ms(1000);                       // 1s
-ms(10000);                      // 10s
-ms(1000 * 60 * 60 * 12);        // 12h
-ms(1000 * 60 * 60 * 24 * 1500); // 4y
+ms(123);                        // 123 ms
+ms(1000);                       // 1 s
+ms(10000);                      // 10 s
+ms(1000 * 60 * 60 * 12);        // 12 h
+ms(1000 * 60 * 60 * 24 * 1500); // 4 y
 ```
 ```js
 // bytes parser
 
-b(123);                         // 123b
-b(1024);                        // 1kb
-b(10240);                       // 10kb
-b(100000);                      // 97kb
-b(123123124);                   // 117mb
-b(1231423525142134);            // 1119tb
+b(123);                         // 123 b
+b(1024);                        // 1 kb
+b(10240);                       // 10 kb
+b(100000);                      // 97 kb
+b(123123124);                   // 117 mb
+b(1231423525142134);            // 1119 tb
 ```
 ```js
 // seconds parser
@@ -73,16 +73,16 @@ var my_parser = normat([
   ['t']
 ]);
 
-my_parser(1);           // 1u
-my_parser(10);          // 1d
-my_parser(100);         // 1c
-my_parser(1000);        // 1m
-my_parser(1000000);     // 1mi
-my_parser(2000000);     // 2mi
-my_parser(10000000);    // 10mi
-my_parser(100000000);   // 100mi
-my_parser(9900000000);  // 9b
-my_parser(19000000000); // 19b
+my_parser(1);           // 1 u
+my_parser(10);          // 1 d
+my_parser(100);         // 1 c
+my_parser(1000);        // 1 m
+my_parser(1000000);     // 1 mi
+my_parser(2000000);     // 2 mi
+my_parser(10000000);    // 10 mi
+my_parser(100000000);   // 100 mi
+my_parser(9900000000);  // 9 b
+my_parser(19000000000); // 19 b
 ```
 ```js
 // bytes
