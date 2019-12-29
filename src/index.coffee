@@ -7,11 +7,11 @@ normat = (opts) ->
 
       for [label, base], i in opts
         if not base or (i + 1) is opts.length or value < base
-          return "#{parseInt(value)}#{label}"
+          return "#{parseInt(value)} #{label}"
 
         value = value / base
     else
-      value = /^([0-9]+)([A-Za-z]+)$/.exec value
+      value = /^([0-9]+)\s*([A-Za-z]+)$/.exec value
 
       if not value
         return null
